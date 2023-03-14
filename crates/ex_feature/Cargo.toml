@@ -17,6 +17,7 @@ assert-invariants = []
 
 [dependencies]
 wasm-bindgen = { version = "0.2.83", default-features = false, optional = true }
+matrix-sdk-modules = { path = "../../../matrix-rust-sdk/crates/matrix-sdk-modules" }
 
 [target.'cfg(target_arch = "wasm32")'.dev-dependencies]
 wasm-bindgen-test = "0.3.33"

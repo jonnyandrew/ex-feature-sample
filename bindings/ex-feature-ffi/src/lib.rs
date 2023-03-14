@@ -20,6 +20,6 @@ use std::sync::Arc;
 
 pub use crate::ffi_ex_feature::ExFeature;
 
-pub fn new_ex_module() -> Arc<ExFeature> {
+pub fn new_ex_feature() -> Arc<ExFeature> {
     Arc::new(ExFeature::new())
 }

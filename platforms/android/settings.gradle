@@ -8,9 +8,13 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+
+        // TODO: Remove once module sdk lib is published
+        mavenLocal()
+
         google()
         mavenCentral()
     }
 }
-rootProject.name = "feature-template"
+rootProject.name = "sample-feature"
 include ':example', ':library'

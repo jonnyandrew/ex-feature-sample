@@ -20,6 +20,6 @@ jobs:
       run: rustup default 1.65
     - name: Install `wasm-pack`
       run: cargo install wasm-pack
-    - name: Test the `wysiwyg` crate
-      working-directory: crates/wysiwyg
+    - name: Test the `ex_feature` crate
+      working-directory: crates/ex_feature
       run: wasm-pack test --release --firefox --headless -- --no-default-features --features js

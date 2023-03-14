@@ -13,12 +13,10 @@
 // limitations under the License.
 
 namespace ex_feature {
-    ExFeature new_ex_module();
+    ExFeature new_ex_feature();
 };
 
-// TODO: Should this interface should come from the module SDK?
 interface ExFeature {
     string name();
+    string log_tag();
 };
-
-

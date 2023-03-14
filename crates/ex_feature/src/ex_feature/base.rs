@@ -12,18 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#[derive(Clone, Default)]
 pub struct ExFeature {
     pub name: String,
+    pub log_tag: String,
 }
 
 impl ExFeature {
     pub fn new() -> Self {
-        Self {
-            name: "Sample module".into(),
-        }
+        Self::default()
     }
+
     pub fn name(&self) -> &str {
         &self.name
+    }
+
+    pub fn log_tag(&self) -> &str {
+        &self.log_tag
+    }
+}
+
+impl Default for ExFeature {
+    fn default() -> Self {
+        Self {
+            name: "Sample feature".into(),
+            log_tag: "SAMPLE_FEATURE".into(),
+        }
     }
 }
