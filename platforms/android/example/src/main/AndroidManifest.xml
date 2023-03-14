@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="io.element.android.wysiwyg.poc">
+    package="io.element.android.feature.poc">
 
     <application
         android:allowBackup="true"
@@ -9,14 +9,14 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".ExampleApplication"
+        android:name="io.element.android.feature.poc.ExampleApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.WYSIWYG"
+        android:theme="@style/Theme.ExFeature"
         tools:targetApi="31"
         tools:replace="android:theme">
         <activity
-            android:name=".MainActivity"
+            android:name="io.element.android.feature.poc.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>

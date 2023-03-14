@@ -1,0 +1,22 @@
+[package]
+authors = ["Jonny Andrew <jonnya@element.io>"]
+edition = "2021"
+homepage = "https://github.com/jonnyandrew/ex-feature"
+repository = "https://github.com/jonnyandrew/ex-feature"
+description = "Sample feature module for ElementX"
+keywords = ["element", "matrix"]
+license = "Apache-2.0"
+name = "ex_feature"
+version = "1.1.0"
+rust-version = "1.65"
+
+[features]
+default = ["assert-invariants"]
+js = ["dep:wasm-bindgen"]
+assert-invariants = []
+
+[dependencies]
+wasm-bindgen = { version = "0.2.83", default-features = false, optional = true }
+
+[target.'cfg(target_arch = "wasm32")'.dev-dependencies]
+wasm-bindgen-test = "0.3.33"

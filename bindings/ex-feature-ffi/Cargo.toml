@@ -1,0 +1,25 @@
+[package]
+authors = ["Jonny Andrew <jonnya@element.io>"]
+edition = "2021"
+homepage = "https://github.com/jonnyandrew/ex-feature"
+repository = "https://github.com/jonnyandrew/ex-feature"
+description = "Swift and Kotlin bindings for ex-feature"
+keywords = ["element", "matrix"]
+license = "Apache-2.0"
+name = "uniffi-ex-feature"
+version = "0.1.0"
+rust-version = "1.65"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
+
+[dependencies]
+# Keep the uniffi version here in sync with the installed version of
+# uniffi-bindgen that is called from
+# ../../examples/example-android/app/build.gradle
+uniffi = "=0.21.0"
+uniffi_macros = "=0.21.0"
+ex_feature = { path = "../../crates/ex_feature" }
+
+[build-dependencies]
+uniffi_build = { version = "=0.21.0", features = ["builtin-bindgen"] }

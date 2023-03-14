@@ -23,13 +23,13 @@ PACKAGE_JSON_REGEX="s/\"version\":\s*\".*\"/\"version\": \"$VERSION\"/g"
 GRADLE_PROPERTIES_REGEX="s/^VERSION_NAME=.*$/VERSION_NAME=$VERSION/g"
 
 echo "Updating Rust"
-$SED_CMD "$CARGO_REGEX" $SCRIPT_PATH/bindings/wysiwyg-ffi/Cargo.toml
-$SED_CMD "$CARGO_REGEX" $SCRIPT_PATH/bindings/wysiwyg-wasm/Cargo.toml
-$SED_CMD "$CARGO_REGEX" $SCRIPT_PATH/crates/wysiwyg/Cargo.toml
+$SED_CMD "$CARGO_REGEX" $SCRIPT_PATH/bindings/ex-feature-ffi/Cargo.toml
+$SED_CMD "$CARGO_REGEX" $SCRIPT_PATH/bindings/ex-feature-wasm/Cargo.toml
+$SED_CMD "$CARGO_REGEX" $SCRIPT_PATH/crates/ex_feature/Cargo.toml
 
 echo "Updating Web"
 $SED_CMD "$PACKAGE_JSON_REGEX" $SCRIPT_PATH/platforms/web/package.json
-$SED_CMD "$PACKAGE_JSON_REGEX" $SCRIPT_PATH/bindings/wysiwyg-wasm/package.json
+$SED_CMD "$PACKAGE_JSON_REGEX" $SCRIPT_PATH/bindings/ex-feature-wasm/package.json
 
 echo "Updating Android"
 $SED_CMD "$GRADLE_PROPERTIES_REGEX" $SCRIPT_PATH/platforms/android/gradle.properties

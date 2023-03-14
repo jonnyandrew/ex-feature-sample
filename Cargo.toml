@@ -1,13 +1,11 @@
 [workspace]
 members = [
-    "bindings/wysiwyg-ffi",
-    "bindings/wysiwyg-wasm",
-    "crates/wysiwyg",
+    "bindings/ex-feature-ffi",
+    "crates/ex_feature",
 ]
 resolver = "2"
 
 [profile.release]
-opt-level = 'z'     # Optimize for size.
 lto = true          # Enable Link Time Optimization
 codegen-units = 1   # Reduce number of codegen units to increase optimizations.
 # Unwind on panic to allow error handling at the FFI boundary. Note this 

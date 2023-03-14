@@ -29,18 +29,18 @@ else
   exit 1
 fi
 
-# Complete any prerequisites as defined in /bindings/wysiwyg-ffi/README.md#ios
+# Complete any prerequisites as defined in /bindings/ex-feature-ffi/README.md#ios
 make ios
 
 BUILD_DIR=build
-REPO_PATH="${BUILD_DIR}/matrix-wysiwyg-composer-swift"
-WYSIWYG_COMPOSER_PATH="platforms/ios/lib/WysiwygComposer/"
+REPO_PATH="${BUILD_DIR}/matrix-ex-feature-swift"
+EX_FEATURE_PATH="platforms/ios/lib/ExFeature/"
 rm -rf $BUILD_DIR
 mkdir $BUILD_DIR
-git clone https://github.com/matrix-org/matrix-wysiwyg-composer-swift.git $REPO_PATH
+git clone https://github.com/matrix-org/matrix-ex-feature-swift.git $REPO_PATH
 git fetch
 git checkout main
-rsync -a --delete --exclude=".git" --exclude=".github" --exclude="README.md" $WYSIWYG_COMPOSER_PATH $REPO_PATH
+rsync -a --delete --exclude=".git" --exclude=".github" --exclude="README.md" $EX_FEATURE_PATH $REPO_PATH
 last_commit=$(git rev-parse --short HEAD);
 RELEASE_BRANCH="release_$last_commit"
 cd $REPO_PATH

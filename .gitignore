@@ -4,13 +4,13 @@
 **/.DS_Store
 # Generated
 /target/
-/bindings/wysiwyg-ffi/.cargo/
-/bindings/wysiwyg-ffi/.generated/
-/bindings/wysiwyg-wasm/pkg/
-/bindings/wysiwyg-wasm/node_modules/
+/bindings/ex-feature-ffi/.cargo/
+/bindings/ex-feature-ffi/.generated/
+/bindings/ex-feature-wasm/pkg/
+/bindings/ex-feature-wasm/node_modules/
 /platforms/android/example/.idea/
 /platforms/android/out/
-/platforms/ios/lib/WysiwygComposer/Sources/WysiwygComposer/WysiwygComposer.swift
-/platforms/ios/lib/WysiwygComposer/WysiwygComposerFFI.xcframework
+/platforms/ios/lib/ExFeature/Sources/ExFeature/ExFeature.swift
+/platforms/ios/lib/ExFeature/ExFeatureFFI.xcframework
 /build/
 .DS_Store
