@@ -1,12 +1,12 @@
 package io.element.android.feature
 
-import io.element.modulesdk.ElementFeatureProvider
-import io.element.modulesdk.lifecycle.LifecycleModule
+import io.element.extension.ElementExtensionProvider
+import io.element.extension.lifecycle.LifecycleExtension
 import timber.log.Timber
 import uniffi.ex_feature.ExFeature
 import uniffi.ex_feature.newExFeature
 
-class SampleElementFeatureProvider : ElementFeatureProvider {
+class SampleElementExtensionProvider : ElementExtensionProvider {
     private val rustImpl by lazy { newExFeature() }
     private val logger by lazy { Logger(rustImpl) }
 
@@ -14,13 +14,13 @@ class SampleElementFeatureProvider : ElementFeatureProvider {
         logger.log("Initializing sample feature module")
     }
 
-    override fun lifecycleModule(): LifecycleModule =
+    override fun lifecycle(): LifecycleExtension =
         SampleLifecycleModule(logger)
 }
 
 internal class SampleLifecycleModule(
     private val logger: Logger,
-) : LifecycleModule {
+) : LifecycleExtension {
     override fun onCreate() {
         logger.log("onCreate")
     }
