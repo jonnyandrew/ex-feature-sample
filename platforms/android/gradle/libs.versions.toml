@@ -1,0 +1,32 @@
+# This file is referenced in ./plugins/settings.gradle.kts to generate the version catalog.
+# https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
+
+[versions]
+android_gradle_plugin = "7.4.2"
+kotlin = "1.8.10"
+material = "1.8.0"
+corektx = "1.9.0"
+activity_compose = "1.6.1"
+compose_bom = "2023.01.00"
+composecompiler = "1.4.2"
+
+[libraries]
+timber = "com.jakewharton.timber:timber:5.0.1"
+extensionsdk = "io.element.android.x:extension-sdk:0.2.0"
+android_gradle_plugin = { module = "com.android.tools.build:gradle", version.ref = "android_gradle_plugin" }
+kotlin_gradle_plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+android_desugarjdklibs = "com.android.tools:desugar_jdk_libs:2.0.2"
+androidx_material = { module = "com.google.android.material:material", version.ref = "material" }
+androidx_corektx = { module = "androidx.core:core-ktx", version.ref = "corektx" }
+androidx_activity_compose = { module = "androidx.activity:activity-compose", version.ref = "activity_compose" }
+androidx_compose_bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose_bom" }
+
+[bundles]
+
+[plugins]
+android_application = { id = "com.android.application", version.ref = "android_gradle_plugin" }
+android_library = { id = "com.android.library", version.ref = "android_gradle_plugin" }
+kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+rust_android = "org.mozilla.rust-android-gradle.rust-android:0.9.3"
+kotlin_jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+sonarqube = "org.sonarqube:4.0.0.2929"
