@@ -62,11 +62,30 @@ android {
     }
 
     ndkVersion = "25.2.9519653"
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.2"
+    }
+
+    libraryVariants.all {
+        kotlin.sourceSets {
+            getByName(name) {
+                kotlin.srcDir("build/generated/ksp/$name/kotlin")
+            }
+        }
+    }
 }
 
 dependencies {
-    api("io.element.android.x:extension-sdk:0.1.0")
+    api("io.element.android.x:extension-sdk:0.2.0")
     implementation "net.java.dev.jna:jna:5.7.0@aar"
+    implementation("androidx.compose:compose-bom:2023.01.00")
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.material:material")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
