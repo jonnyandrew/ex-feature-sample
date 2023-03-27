@@ -36,7 +36,8 @@ android {
 }
 
 dependencies {
-    implementation(libs.extensionsdk)
+    implementation(libs.elementx.extensionsdk)
+    implementation(libs.elementx.designsystem)
     implementation("net.java.dev.jna:jna:5.7.0@aar")
     composeDependencies(libs)
     coreLibraryDesugaring(libs.android.desugarjdklibs)

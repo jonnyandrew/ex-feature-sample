@@ -25,7 +25,7 @@ android {
 
 dependencies {
     implementation(projects.library)
-    implementation(libs.extensionsdk)
+    implementation(libs.elementx.extensionsdk)
     implementation(libs.androidx.corektx)
     implementation(libs.androidx.material)
     coreLibraryDesugaring(libs.android.desugarjdklibs)
