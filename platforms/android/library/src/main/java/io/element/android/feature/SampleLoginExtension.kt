@@ -20,7 +20,7 @@ import io.element.extension.login.LoginExtension
 internal class SampleLoginExtension : LoginExtension {
 
     @Composable
-    override fun Branding() {
+    override fun Banner(onInteractionComplete: () -> Unit) {
         var isConfirmationDisplayed by rememberSaveable { mutableStateOf(false) }
         var isInfoDisplayed by rememberSaveable { mutableStateOf(false) }
 
@@ -29,6 +29,7 @@ internal class SampleLoginExtension : LoginExtension {
             isInfoDisplayed,
             { isConfirmationDisplayed = it },
             { isInfoDisplayed = it },
+            onInteractionComplete
         )
     }
 
@@ -38,6 +39,7 @@ internal class SampleLoginExtension : LoginExtension {
         isInfoDisplayed: Boolean,
         setIsConfirmationDisplayed: (Boolean) -> Unit,
         setIsInfoDisplayed: (Boolean) -> Unit,
+        onInteractionComplete: () -> Unit,
     ) {
         Surface(
             shape = MaterialTheme.shapes.medium,
@@ -75,7 +77,10 @@ internal class SampleLoginExtension : LoginExtension {
 
         if (isInfoDisplayed) {
             LearnMoreScreen(
-                onDismiss = { setIsInfoDisplayed(false) },
+                onDismiss = {
+                    setIsInfoDisplayed(false)
+                    onInteractionComplete()
+                },
             )
         }
     }
