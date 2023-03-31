@@ -2,6 +2,7 @@
 plugins {
     id("io.element.android-compose-application")
     id("kotlin-android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -28,5 +29,6 @@ dependencies {
     implementation(libs.elementx.extensionsdk)
     implementation(libs.androidx.corektx)
     implementation(libs.androidx.material)
+    implementation(libs.appyx.core)
     coreLibraryDesugaring(libs.android.desugarjdklibs)
 }

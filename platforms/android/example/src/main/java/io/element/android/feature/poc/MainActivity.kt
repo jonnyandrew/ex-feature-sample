@@ -5,16 +5,13 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
+import androidx.compose.material.MaterialTheme
+import com.bumble.appyx.core.integration.NodeHost
+import com.bumble.appyx.core.integrationpoint.NodeComponentActivity
 import io.element.android.feature.SampleElementExtensionProvider
+import io.element.extension.lifecycle
 
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : NodeComponentActivity() {
 
     private lateinit var extensionProvider: SampleElementExtensionProvider
 
@@ -23,17 +20,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         extensionProvider = SampleElementExtensionProvider()
-        extensionProvider.lifecycle().onCreate()
+        extensionProvider.lifecycle().forEach { it.onCreate() }
 
         setContent {
-            val context = LocalContext.current
-            Column(
-                modifier = Modifier.padding(16.dp)
-            ) {
-                extensionProvider.login()
-                    .Banner(onInteractionComplete = {
-                        onInteractionComplete(context)
-                    })
+            MaterialTheme {
+                NodeHost(integrationPoint = appyxIntegrationPoint) {
+                    RootNode(
+                        buildContext = it,
+                        extensionProvider = extensionProvider,
+                        onInteractionComplete = { onInteractionComplete(this) }
+                    )
+                }
             }
         }
     }

@@ -1,7 +1,7 @@
 package io.element.android.feature
 
+import io.element.extension.ElementExtension
 import io.element.extension.ElementExtensionProvider
-import io.element.extension.lifecycle.LifecycleExtension
 import io.element.extension.login.LoginExtension
 import uniffi.ex_feature.newExFeature
 
@@ -13,9 +13,10 @@ class SampleElementExtensionProvider : ElementExtensionProvider {
         logger.log("Initializing sample feature module")
     }
 
-    override fun lifecycle(): LifecycleExtension =
-        SampleLifecycleExtension(logger)
-
-    override fun login(): LoginExtension =
-        SampleLoginExtension()
+    override fun extensions(): List<ElementExtension> = listOf(
+        SampleLifecycleExtension(logger),
+        SampleLoginExtension(),
+        SampleOnboardingExtension1(),
+        SampleOnboardingExtension2(),
+    )
 }
