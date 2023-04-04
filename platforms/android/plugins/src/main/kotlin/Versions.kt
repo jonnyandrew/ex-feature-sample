@@ -19,7 +19,7 @@ import org.gradle.jvm.toolchain.JavaLanguageVersion
 
 object Versions {
     const val versionCode = 1
-    const val versionName = "0.4.0"
+    const val versionName = "0.5.0"
 
     const val compileSdk = 33
     const val targetSdk = 33

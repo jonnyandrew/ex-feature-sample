@@ -19,7 +19,7 @@ class MainActivity : NodeComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        extensionProvider = SampleElementExtensionProvider()
+        extensionProvider = SampleElementExtensionProvider(this)
         extensionProvider.lifecycle().forEach { it.onCreate() }
 
         setContent {
