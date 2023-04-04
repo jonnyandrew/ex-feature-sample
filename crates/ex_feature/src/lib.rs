@@ -15,3 +15,4 @@
 mod ex_feature;
 
 pub use crate::ex_feature::ExFeature;
+pub use crate::ex_feature::SlidingSyncUpdate;

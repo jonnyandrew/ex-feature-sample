@@ -19,6 +19,7 @@ mod ffi_ex_feature;
 use std::sync::Arc;
 
 pub use crate::ffi_ex_feature::ExFeature;
+pub use crate::ffi_ex_feature::SlidingSyncUpdate;
 
 pub fn new_ex_feature() -> Arc<ExFeature> {
     Arc::new(ExFeature::new())

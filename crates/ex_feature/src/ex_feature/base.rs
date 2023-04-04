@@ -12,6 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+pub struct SlidingSyncUpdate {
+    pub lists: Vec<String>,
+    pub rooms: Vec<String>,
+}
+
 pub struct ExFeature {
     pub name: String,
     pub log_tag: String,
@@ -28,6 +33,19 @@ impl ExFeature {
 
     pub fn log_tag(&self) -> &str {
         &self.log_tag
+    }
+
+    pub fn process_sliding_sync_update(
+        &self,
+        ss_update: SlidingSyncUpdate,
+    ) -> String {
+        let num_lists = ss_update.lists.len();
+        let num_rooms = ss_update.rooms.len();
+
+        format!(
+            "Sliding sync updated {} lists and {} rooms",
+            num_lists, num_rooms,
+        )
     }
 }
 

@@ -19,4 +19,10 @@ namespace ex_feature {
 interface ExFeature {
     string name();
     string log_tag();
+    string process_sliding_sync_update(SlidingSyncUpdate ss_update);
+};
+
+dictionary SlidingSyncUpdate {
+    sequence<string> lists;
+    sequence<string> rooms;
 };

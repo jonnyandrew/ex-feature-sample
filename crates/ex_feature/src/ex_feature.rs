@@ -15,3 +15,4 @@
 pub mod base;
 
 pub use base::ExFeature;
+pub use base::SlidingSyncUpdate;
